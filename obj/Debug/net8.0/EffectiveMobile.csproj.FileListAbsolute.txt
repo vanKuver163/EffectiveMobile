@@ -23,3 +23,11 @@ C:\Users\localadmin\source\repos\EffectiveMobile\obj\Debug\net8.0\refint\Effecti
 C:\Users\localadmin\source\repos\EffectiveMobile\obj\Debug\net8.0\EffectiveMobile.pdb
 C:\Users\localadmin\source\repos\EffectiveMobile\obj\Debug\net8.0\EffectiveMobile.genruntimeconfig.cache
 C:\Users\localadmin\source\repos\EffectiveMobile\obj\Debug\net8.0\ref\EffectiveMobile.dll
+C:\Users\localadmin\source\repos\EffectiveMobile\obj\Debug\net8.0\EffectiveMobile.sourcelink.json
+C:\Users\localadmin\source\repos\EffectiveMobile\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\localadmin\source\repos\EffectiveMobile\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\localadmin\source\repos\EffectiveMobile\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\localadmin\source\repos\EffectiveMobile\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\localadmin\source\repos\EffectiveMobile\obj\Debug\net8.0\EffectiveMobile.csproj.AssemblyReference.cache
+C:\Users\localadmin\source\repos\EffectiveMobile\obj\Debug\net8.0\EffectiveMobile.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\localadmin\source\repos\EffectiveMobile\obj\Debug\net8.0\Effectiv.0A3109FB.Up2Date

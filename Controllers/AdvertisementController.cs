@@ -8,13 +8,38 @@ namespace EffectiveMobile.Controllers;
 public class AdvertisementController(IAdvertisementService advertisementService) : ControllerBase
 {
 
-    public IActionResult UploadAdvertisements(IFormFile file)
+    [HttpPost("unload")]
+    public IActionResult UploadAdvertisements(IFormFile? file)
     {
-        return Ok();
+        if (file == null || file.Length == 0)
+            return BadRequest("Требуется файл!");
+
+        try
+        {
+            using var stream = new StreamReader(file.OpenReadStream());
+            advertisementService.LoadAdvertisements(stream);
+            return Ok();
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, $"Ошибка сервера: {ex.Message}");
+        }
     }
     
+    [HttpGet("search")]
     public ActionResult<IEnumerable<string>> SearchAdvertisements(string location)
     {
-        return Ok();
+        if (string.IsNullOrWhiteSpace(location))
+            return BadRequest("Требуется локация!");
+
+        try
+        {
+            var ads = advertisementService.GetAdvertisements(location);
+            return Ok(ads);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, $"Ошибка сервера: {ex.Message}");
+        }
     }
 }

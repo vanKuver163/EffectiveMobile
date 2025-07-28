@@ -1,10 +1,7 @@
 namespace EffectiveMobile.Services;
 
-public class AdvertisementService : IAdvertisementService
+public class AdvertisementService(IAdvertisementDataProvider dataProvider) : IAdvertisementService
 {
-    private Dictionary<string, List<string>> _locationAdsMap = new();
-    private Dictionary<string, List<string>> _adsLocationsMap = new();
-    
     public void LoadAdvertisements(StreamReader stream)
     {
         var newLocationAdsMap = new Dictionary<string, List<string>>();
@@ -35,8 +32,7 @@ public class AdvertisementService : IAdvertisementService
             }
         }
        
-        _locationAdsMap = newLocationAdsMap;
-        _adsLocationsMap = newAdsLocationsMap;
+        dataProvider.UpdateData(newLocationAdsMap, newAdsLocationsMap);
     }
 
     public IEnumerable<string> GetAdvertisements(string location)
@@ -46,7 +42,7 @@ public class AdvertisementService : IAdvertisementService
     
         while (!string.IsNullOrEmpty(currentLocation))
         {
-            if (_locationAdsMap.TryGetValue(currentLocation, out var ads))
+            if (dataProvider.LocationAdsMap.TryGetValue(currentLocation, out var ads))
             {
                 foreach (var ad in ads)
                 {
@@ -59,7 +55,7 @@ public class AdvertisementService : IAdvertisementService
         }
         
         return result.OrderBy(ad => 
-            _adsLocationsMap.TryGetValue(ad, out var locs) 
+            dataProvider.AdsLocationsMap.TryGetValue(ad, out var locs) 
                 ? locs.Min(GetLocationDepth) 
                 : int.MaxValue);
     }
