@@ -1,0 +1,8 @@
+В командной строке выполнить: 
+	git clone https://github.com/vanKuver163/EffectiveMobile.git
+	cd EffectiveMobile
+	dotnet run
+В браузере открыть swagger:
+ 	http://localhost:5000/swagger/index.html
+Выполнить POST запрос /api/Advertisement/unload файл для теста находится в корневой папке проекта data.txt
+Выполнить GET запрос /api/Advertisement/search 
